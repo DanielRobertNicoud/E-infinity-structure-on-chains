@@ -24,6 +24,7 @@ class Permutation:
         """
         Composition of permutations.
         """
+        print(self, other)
         # check the two permutations have same dimension
         assert self.n == other.n, "Trying to compose permutations of " \
             "different dimension"

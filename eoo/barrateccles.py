@@ -59,5 +59,6 @@ class BarratEccles:
         return str(self) == str(other)
 
     def __rmul__(self, other: Permutation):
+        print(self, other)
         permutations_out = [other * p for p in self.permutations]
         return BarratEccles(permutations_out)
