@@ -50,3 +50,10 @@ class BarratEccles:
             "| " + ", ".join([str(x + 1) for x in p.permutation])
             for p in self.permutations
             ])
+
+    def __eq__(self, other):
+        if self.is_zero != other.is_zero:
+            return False
+        if self.is_zero:
+            return True
+        return str(self) == str(other)
