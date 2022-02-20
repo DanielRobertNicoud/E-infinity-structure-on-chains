@@ -1,6 +1,6 @@
 import pytest
 
-from eoo import BarratEccles
+from eoo import BarratEccles, Permutation
 
 
 def test_constructor_barrateccles():
@@ -45,3 +45,14 @@ def test_equality():
     assert x != y
     assert x != z
     assert y != z
+
+
+def test_symmetric_action():
+    p, q, r = [1, 2, 3, 4], [2, 1, 4, 3], [1, 4, 2, 3]
+    x = BarratEccles([p, q, r])
+    sigma_id = Permutation([1, 2, 3, 4])
+    sigma = Permutation([2, 1, 3, 4])
+    t, u = [2, 1, 3, 4], [4, 1, 2, 3]
+    y = BarratEccles([t, p, u])
+    assert sigma_id * x == x
+    assert sigma * x == y

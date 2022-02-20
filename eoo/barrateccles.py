@@ -57,3 +57,7 @@ class BarratEccles:
         if self.is_zero:
             return True
         return str(self) == str(other)
+
+    def __lmul__(self, other: Permutation):
+        permutations_out = [other * p for p in self.permutations]
+        return BarratEccles(permutations_out)
