@@ -21,7 +21,18 @@ class Permutation:
     def __repr__(self) -> str:
         return "(" + ", ".join([str(x + 1) for x in self.permutation]) + ")"
 
+    def __mul__(self, other):
+        """
+        Composition of permutations.
+        """
+        # check the two permutations have same dimension
+        assert self.n == other.n, "Trying to compose permutations of " \
+            "different dimension"
+        composite = [self.permutation[x] + 1 for x in other.permutation]
+        return Permutation(composite)
+
 
 if __name__ == "__main__":
-    p = Permutation([3, 2, 4, 1])
-    print(p)
+    p = Permutation([2, 3, 1])
+    q = Permutation([3, 2, 1])
+    print(p * q)
