@@ -17,7 +17,7 @@ Please find the full package documentation in the original Github repository_.
 
 .. _repository: https://github.com/DanielRobertNicoud/dupont-contraction
 """
-    
+
 setuptools.setup(
     name='e-infinity-chains',
     version='0.0.0',
