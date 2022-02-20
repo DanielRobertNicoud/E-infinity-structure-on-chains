@@ -30,7 +30,7 @@ class BarratEccles:
             pass
         self.permutations = permutations
         self.r = self.permutations[0].n
-        self.d = len(permutations) - 1
+        self.d = len(self.permutations) - 1
         # check that all permutations have the same dimension
         for p in self.permutations:
             assert p.n == self.r, \
@@ -58,6 +58,6 @@ class BarratEccles:
             return True
         return str(self) == str(other)
 
-    def __lmul__(self, other: Permutation):
+    def __rmul__(self, other: Permutation):
         permutations_out = [other * p for p in self.permutations]
         return BarratEccles(permutations_out)
