@@ -32,3 +32,16 @@ def test_composite():
     c = p * q
     assert c.n == 3, "Wrong dimension"
     assert str(c) == "(1, 3, 2)"
+
+
+def test_inverse():
+    p = Permutation([4, 3, 1, 2])
+    assert str(p.inverse) == "(3, 4, 2, 1)"
+
+
+def test_equality():
+    p = Permutation([2, 3, 1])
+    q = Permutation([3, 2, 1])
+    assert p == p
+    assert q == q
+    assert p != q

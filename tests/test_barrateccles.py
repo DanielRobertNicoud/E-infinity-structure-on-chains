@@ -16,3 +16,14 @@ def test_constructor_barrateccles():
     be = BarratEccles([p, q, r])
     assert be.r == 4, "Wrong arity"
     assert be.d == 3, "Wrong degree"
+
+
+def test_repr():
+    p, q, r = [1, 2, 3, 4], [2, 1, 4, 3], [1, 4, 2, 3]
+    be = BarratEccles([p, q, r])
+    s = (
+        "| 1, 2, 3, 4\n"
+        "| 2, 1, 4, 3\n"
+        "| 1, 4, 2, 3\n"
+        )
+    assert str(be) == s

@@ -29,3 +29,21 @@ class Permutation:
             "different dimension"
         composite = [self.permutation[x] + 1 for x in other.permutation]
         return Permutation(composite)
+
+    def apply(self, i):
+        """
+        Apply permutation to element.
+        """
+        return self.permutation[i - 1] + 1
+
+    def inverse(self):
+        """
+        Inverse permutation.
+        """
+        inverse_permutation = [0 for i in range(self.n)]
+        for i in range(1, self.n + 1):
+            inverse_permutation[self.apply(i) - 1] = i
+        return Permutation(inverse_permutation)
+
+    def __eq__(self, other):
+        return self.permutation == other.permutation
